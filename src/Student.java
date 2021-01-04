@@ -1,28 +1,31 @@
 import java.util.ArrayList;
 
 public class Student {
-    String name;
     String id;
+    String lastname;
+    String firstname;
     String course;
     String section;
     ArrayList<String> groups = new ArrayList<>();
+    static int count = 0;
 
 
-    public Student(String name, String id, String course, String section) {
-        this.name = name;
+    public Student(String id, String lastname, String firstname, String course, String section) {
+
         this.id = id;
+        this.lastname = lastname;
+        this.firstname = firstname;
         this.course = course;
         this.section = section;
+        count++;
+    }
+
+    public void printStudent(Student s){
+        System.out.println("[ " + s.getLastname() + ", " + s.getFirstname() + " ]");
     }
 
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getId() {
         return id;
@@ -54,5 +57,21 @@ public class Student {
 
     public void setGroups(ArrayList<String> groups) {
         this.groups = groups;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 }
