@@ -1,5 +1,7 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
 
 public class Main {
 
@@ -7,6 +9,7 @@ public class Main {
 
         ArrayList<Student> students = CsvReader.readFile("csv/test.csv");
         ArrayList<String> roll =  getClass("GTE", "1", students );
+        generateGroups(4, roll);
 
 
 
@@ -15,9 +18,25 @@ public class Main {
 
     }
 
-    public static void generateGroups(int groupSize){
+    public static void generateGroups(int groupSize, ArrayList<String> roll){
+        double groupNumber = 1.1;
+        Collections.shuffle(roll);
 
-    }
+            for (int i = 0; i < roll.size(); i += groupSize) {
+
+                    System.out.println(roll.get(i) + ": " + groupNumber);
+                    System.out.println(roll.get(i + 1) + ": " + groupNumber);
+                    System.out.println(roll.get(i + 2) + ": " + groupNumber);
+                    System.out.println("--------------------");
+                    groupNumber += .1;
+            }
+
+        }
+
+
+
+
+
 
     public static ArrayList<String> getClass(String course, String section, ArrayList<Student> students){
         ArrayList<String> classlist = new ArrayList<>();
@@ -29,7 +48,7 @@ public class Main {
                 if (s.getSection().equals("3")){
                     //System.out.println(s.getSection());
                     classlist.add(s.getFullname());
-                    System.out.println(s.getFullname());
+                    //System.out.println(s.getFullname());
                 }
 
             }
