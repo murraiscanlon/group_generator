@@ -9,7 +9,7 @@ public class Main {
 
         ArrayList<Student> students = CsvReader.readFile("csv/test.csv");
         ArrayList<String> roll =  getClass("GTE", "1", students );
-        generateGroups(4, roll);
+        generateGroups(3, roll);
 
 
 
@@ -19,14 +19,16 @@ public class Main {
     }
 
     public static void generateGroups(int groupSize, ArrayList<String> roll){
+        //TODO format group number to 1 decimal point
+
         double groupNumber = 1.1;
         Collections.shuffle(roll);
 
             for (int i = 0; i < roll.size(); i += groupSize) {
 
-                    System.out.println(roll.get(i) + ": " + groupNumber);
-                    System.out.println(roll.get(i + 1) + ": " + groupNumber);
-                    System.out.println(roll.get(i + 2) + ": " + groupNumber);
+                    System.out.println(roll.get(i) + ": " + String.format( "%.1f", groupNumber ));
+                    System.out.println(roll.get(i + 1) + ": " + String.format( "%.1f", groupNumber ));
+                    System.out.println(roll.get(i + 2) + ": " + String.format( "%.1f", groupNumber ));
                     System.out.println("--------------------");
                     groupNumber += .1;
             }
