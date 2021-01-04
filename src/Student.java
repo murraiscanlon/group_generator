@@ -8,6 +8,7 @@ public class Student {
     String section;
     ArrayList<String> groups = new ArrayList<>();
     static int count = 0;
+    String fullname;
 
 
     public Student(String id, String lastname, String firstname, String course, String section) {
@@ -18,6 +19,11 @@ public class Student {
         this.course = course;
         this.section = section;
         count++;
+    }
+
+
+    public String getFullname(){
+        return firstname + " " + lastname;
     }
 
     public void printStudent(Student s){

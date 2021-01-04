@@ -18,7 +18,7 @@ public class CsvReader {
             try {
                 scanner = new Scanner(infile);
 
-                //String firstrow = scanner.nextLine();
+                scanner.nextLine();
                 while (scanner.hasNextLine()) {
                     String row = scanner.nextLine();
                     String[] column = row.split(",");
