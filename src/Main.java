@@ -10,7 +10,8 @@ public class Main {
         //TODO create view file to get user input for parameters below
 
         ArrayList<Student> students = CsvReader.readFile("C:/Users/Murrai.Scanlon/IdeaProjects/group_generator/csv/test.csv");
-        ArrayList<String> roll =  getClass("gte", "3", students );
+        String[] option = View.menu();
+        ArrayList<String> roll =  getClass(option[0], option[1], students );
         generateGroups(3, roll);
 
 
