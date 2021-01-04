@@ -7,19 +7,17 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ArrayList<Student> students = CsvReader.readFile("csv/test.csv");
-        ArrayList<String> roll =  getClass("GTE", "1", students );
+        //TODO create view file to get user input for parameters below
+
+        ArrayList<Student> students = CsvReader.readFile("C:/Users/Murrai.Scanlon/IdeaProjects/group_generator/csv/test.csv");
+        ArrayList<String> roll =  getClass("gte", "3", students );
         generateGroups(3, roll);
-
-
-
-
 
 
     }
 
     public static void generateGroups(int groupSize, ArrayList<String> roll){
-        //TODO format group number to 1 decimal point
+        //TODO avoid indexoutofbounds error when the groups aren't even
 
         double groupNumber = 1.1;
         Collections.shuffle(roll);
@@ -45,9 +43,9 @@ public class Main {
 
         for (Student s : students){
             //System.out.println(s.getCourse());
-            if (s.getCourse().equals("gte")){
+            if (s.getCourse().equals(course)){
                 //System.out.println(s.getCourse());
-                if (s.getSection().equals("3")){
+                if (s.getSection().equals(section)){
                     //System.out.println(s.getSection());
                     classlist.add(s.getFullname());
                     //System.out.println(s.getFullname());
