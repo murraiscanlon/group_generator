@@ -1,0 +1,14 @@
+
+Problem statement:
+    I need a group generator that will form project groups and keep track of which students
+    have worked together.
+
+
+
+    Generate groups of students with the following constraints from user:
+        1.  Course
+        2.  Period
+        3.  Group size range
+
+    Keep track of which groups which students have been a part of
+
