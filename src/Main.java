@@ -7,12 +7,20 @@ public class Main {
 
     public static void main(String[] args) {
 
-        //TODO create view file to get user input for parameters below
+
 
         ArrayList<Student> students = CsvReader.readFile("C:/Users/Murrai.Scanlon/IdeaProjects/group_generator/csv/test.csv");
-        String[] option = View.menu();
-        ArrayList<String> roll =  getClass(option[0], option[1], students );
-        generateGroups(3, roll);
+
+            String quit = "n";
+            while(quit.equals("n")){
+
+            String[] option = View.menu();
+            ArrayList<String> roll = getClass(option[0], option[1], students);
+            generateGroups(3, roll);
+            quit = View.continueOrQuit();
+            }
+
+
 
 
     }
