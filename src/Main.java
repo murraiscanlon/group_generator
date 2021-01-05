@@ -16,7 +16,7 @@ public class Main {
 
             //String[] option = View.menu();
             ArrayList<String> roll = getClass("gte", "3", students); //option[0], option[1]
-            generateGroups("3", "5", roll); //option[1], option[2],
+            generateGroups("3", "2", roll); //option[1], option[2],
             quit = View.continueOrQuit();
         }
 
@@ -32,25 +32,24 @@ public class Main {
         groupNumber  += .1;
         Collections.shuffle(namesList);
         System.out.println();
-        System.out.println("***************** NEW GROUPS *********************");
+        System.out.println("Groups Generated for Period: " + section);
+        System.out.println("Total Students in Period: " + namesList.size());
         System.out.println();
         int size = Integer.parseInt(groupSize);
 
             for (int i = 0; i < namesList.size(); i += size) {
+                System.out.println("GROUP: " + String.format("%.1f", groupNumber));
 
                 try {
                     for (int j = 0; j < size; j++) {
 
-                        System.out.println(namesList.get(i + j) + ": " + String.format("%.1f", groupNumber));
+                        System.out.println(namesList.get(i + j)); // + ": " + String.format("%.1f", groupNumber));
                     }
 
                 } catch (IndexOutOfBoundsException e) {
                     //System.out.println("in the else");
 
                 }
-
-
-
                     System.out.println("--------------------");
                     groupNumber += .1;
             }
