@@ -20,13 +20,12 @@ public class Main {
             quit = View.continueOrQuit();
         }
 
-        //TODO Group size is not dynamic yet. Must be 3 to work correctly because of hard coding in generateGroups().
 
 
     }
 
     public static void generateGroups(String section, String groupSize, ArrayList<String> namesList){
-        //TODO avoid indexoutofbounds error when the groups aren't evenly divided
+
 
 
         double groupNumber = Double.parseDouble(section);
@@ -39,13 +38,18 @@ public class Main {
 
             for (int i = 0; i < namesList.size(); i += size) {
 
-                for (int j = 0; j < size; j++ ) {
-                    System.out.println(namesList.get(i + j) + ": " + String.format("%.1f", groupNumber));
+                try {
+                    for (int j = 0; j < size; j++) {
 
-                    //System.out.println(namesList.get(i + 1) + ": " + String.format("%.1f", groupNumber));
-                    //System.out.println(namesList.get(i + 2) + ": " + String.format("%.1f", groupNumber));
+                        System.out.println(namesList.get(i + j) + ": " + String.format("%.1f", groupNumber));
+                    }
+
+                } catch (IndexOutOfBoundsException e) {
+                    //System.out.println("in the else");
 
                 }
+
+
 
                     System.out.println("--------------------");
                     groupNumber += .1;
