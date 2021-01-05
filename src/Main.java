@@ -11,31 +11,42 @@ public class Main {
 
         ArrayList<Student> students = CsvReader.readFile("C:/Users/Murrai.Scanlon/IdeaProjects/group_generator/csv/test.csv");
 
-            String quit = "n";
-            while(quit.equals("n")){
+        String quit = "n";
+        while(quit.equals("n")){
 
-            String[] option = View.menu();
-            ArrayList<String> roll = getClass(option[0], option[1], students);
-            generateGroups(3, roll);
+            //String[] option = View.menu();
+            ArrayList<String> roll = getClass("gte", "3", students); //option[0], option[1]
+            generateGroups("3", "5", roll); //option[1], option[2],
             quit = View.continueOrQuit();
-            }
+        }
 
-
+        //TODO Group size is not dynamic yet. Must be 3 to work correctly because of hard coding in generateGroups().
 
 
     }
 
-    public static void generateGroups(int groupSize, ArrayList<String> roll){
-        //TODO avoid indexoutofbounds error when the groups aren't even
+    public static void generateGroups(String section, String groupSize, ArrayList<String> namesList){
+        //TODO avoid indexoutofbounds error when the groups aren't evenly divided
 
-        double groupNumber = 1.1;
-        Collections.shuffle(roll);
 
-            for (int i = 0; i < roll.size(); i += groupSize) {
+        double groupNumber = Double.parseDouble(section);
+        groupNumber  += .1;
+        Collections.shuffle(namesList);
+        System.out.println();
+        System.out.println("***************** NEW GROUPS *********************");
+        System.out.println();
+        int size = Integer.parseInt(groupSize);
 
-                    System.out.println(roll.get(i) + ": " + String.format( "%.1f", groupNumber ));
-                    System.out.println(roll.get(i + 1) + ": " + String.format( "%.1f", groupNumber ));
-                    System.out.println(roll.get(i + 2) + ": " + String.format( "%.1f", groupNumber ));
+            for (int i = 0; i < namesList.size(); i += size) {
+
+                for (int j = 0; j < size; j++ ) {
+                    System.out.println(namesList.get(i + j) + ": " + String.format("%.1f", groupNumber));
+
+                    //System.out.println(namesList.get(i + 1) + ": " + String.format("%.1f", groupNumber));
+                    //System.out.println(namesList.get(i + 2) + ": " + String.format("%.1f", groupNumber));
+
+                }
+
                     System.out.println("--------------------");
                     groupNumber += .1;
             }
