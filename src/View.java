@@ -17,9 +17,7 @@ public class View {
 
     public static String continueOrQuit(){
         System.out.print("Would you like to quit? (y/n): ");
-        String continueOrQuit = scanner.nextLine();
-
-        return continueOrQuit;
+        return scanner.nextLine();
     }
 
 
