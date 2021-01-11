@@ -1,0 +1,130 @@
+id,last_name,first_name,course,section
+1,Darakjy,Josephine,gte,3
+2,Venere,Art,gte,3
+3,Paprocki,Lenna,gte,3
+4,Foller,Donette,gte,3
+5,Morasca,Simona,gte,3
+6,Tollner,Mitsue,gte,3
+7,Dilliard,Leota,gte,3
+8,Wieser,Sage,gte,3
+9,Marrier,Kris,gte,3
+10,Amigon,Minna,gte,3
+11,Maclead,Abel,gte,3
+12,Caldarera,Kiley,gte,3
+13,Ruta,Graciela,gte,3
+14,Albares,Cammy,gte,3
+15,Poquette,Mattie,gte,3
+16,Garufi,Meaghan,gte,3
+17,Rim,Gladys,gte,3
+18,Whobrey,Yuki,gte,3
+19,Flosi,Fletcher,gte,3
+20,Nicka,Bette,gte,3
+21,Inouye,Veronika,advrobo,1
+22,Kolmetz,Willard,advrobo,1
+23,Royster,Maryann,advrobo,1
+24,Slusarski,Alisha,advrobo,1
+25,Iturbide,Allene,advrobo,1
+26,Caudy,Chanel,advrobo,1
+27,Chui,Ezekiel,advrobo,1
+28,Kusko,Willow,advrobo,1
+29,Figeroa,Bernardo,advrobo,7
+30,Corrio,Ammie,advrobo,7
+31,Vocelka,Francine,advrobo,7
+32,Stenseth,Ernie,advrobo,7
+33,Glick,Albina,adv robo,7
+34,Sergi,Alishia,adv robo,7
+35,Shinko,Solange,adv robo,7
+36,Stockham,Jose,adv robo,7
+37,Ostrosky,Rozella,adv robo,7
+38,Gillian,Valentine,adv robo,7
+39,Rulapaugh,Kati,adv robo,7
+40,Schemmer,Youlanda,adv robo,7
+41,Oldroyd,Dyan,adv robo,5
+42,Campain,Roxane,adv robo,5
+43,Perin,Lavera,adv robo,5
+44,Ferencz,Erick,adv robo,5
+45,Saylors,Fatima,adv robo,5
+46,Briddick,Jina,adv robo,5
+47,Waycott,Kanisha,adv robo,5
+48,Bowley,Emerson,adv robo,5
+49,Malet,Blair,adv robo,5
+50,Bolognia,Brock,adv robo,5
+51,Nestle,Lorrie,adv robo,5
+52,Uyetake,Sabra,adv robo,5
+53,Mastella,Marjory,adv robo,5
+54,Klonowski,Karl,adv robo,5
+55,Wenner,Tonette,adv robo,5
+56,Monarrez,Amber,adv robo,5
+57,Seewald,Shenika,adv robo,5
+58,Ahle,Delmy,adv robo,5
+59,Juhas,Deeanna,adv robo,5
+60,Pugh,Blondell,adv robo,5
+61,Vanausdal,Jamal,adv robo,5
+62,Hollack,Cecily,adv robo,6
+63,Lindall,Carmelina,adv robo,6
+64,Yglesias,Maurine,adv robo,6
+65,Buvens,Tawna,adv robo,6
+66,Weight,Penney,adv robo,6
+67,Morocco,Elly,adv robo,6
+68,Eroman,Ilene,adv robo,6
+69,Mondella,Vallie,adv robo,6
+70,Blackwood,Kallie,adv robo,6
+71,Abdallah,Johnetta,adv robo,6
+72,Rhym,Bobbye,adv robo,6
+73,Rhymes,Micaela,adv robo,6
+74,Hoogland,Tamar,adv robo,6
+75,Parlato,Moon,adv robo,6
+76,Reitler,Laurel,adv robo,6
+77,Crupi,Delisa,adv robo,6
+78,Toelkes,Viva,adv robo,6
+79,Lipke,Elza,adv robo,6
+80,Chickering,Devorah,stemlab,4
+81,Mulqueen,Timothy,stemlab,4
+82,Honeywell,Arlette,stemlab,4
+83,Dickerson,Dominque,stemlab,4
+84,Isenhower,Lettie,stemlab,4
+85,Munns,Myra,stemlab,4
+86,Barfield,Stephaine,stemlab,4
+87,Gato,Lai,stemlab,4
+88,Emigh,Stephen,stemlab,4
+89,Shields,Tyra,stemlab,4
+90,Wardrip,Tammara,stemlab,4
+91,Gibes,Cory,stemlab,4
+92,Bruschke,Danica,stemlab,4
+93,Giguere,Wilda,stemlab,4
+94,Benimadho,Elvera,stemlab,4
+95,Vanheusen,Carma,stemlab,4
+96,Hochard,Malinda,stemlab,4
+97,Fern,Natalie,stemlab,4
+98,Centini,Lisha,stemlab,4
+99,Klusman,Arlene,stemlab,4
+100,Buemi,Alease,stemlab,4
+101,Cronauer,Louisa,stemlab,4
+102,Cetta,Angella,stemlab,8
+103,Goldammer,Cyndy,stemlab,8
+104,Cork,Rosio,stemlab,8
+105,Korando,Celeste,stemlab,8
+106,Felger,Twana,stemlab,8
+107,Samu,Estrella,stemlab,8
+108,Kines,Donte,stemlab,8
+109,Steffensmeier,Tiffiny,stemlab,8
+110,Miceli,Edna,stemlab,8
+111,Kownacki,Sue,stemlab,8
+112,Shin,Jesusa,stemlab,8
+113,Francescon,Rolland,stemlab,8
+114,Schmierer,Pamella,stemlab,8
+115,Kulzer,Glory,stemlab,8
+116,Palaspas,Shawna,stemlab,8
+117,Callaro,Brandon,stemlab,8
+118,Cartan,Scarlet,stemlab,8
+119,Menter,Oretha,stemlab,8
+120,Smith,Ty,stemlab,8
+121,Rochin,Xuan,stemlab,8
+122,Dilello,Lindsey,stemlab,8
+123,Perez,Devora,stemlab,8
+124,Demesa,Herman,stemlab,8
+125,Papasergi,Rory,stemlab,8
+126,Riopelle,Talia,stemlab,8
+127,Shire,Van,stemlab,8
+128,Lary,Lucina,stemlab,8
+129,Isaacs,Bok,stemlab,8
