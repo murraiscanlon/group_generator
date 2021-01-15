@@ -1,13 +1,8 @@
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
-import java.util.Random;
-import java.text.SimpleDateFormat;
-import java.time.*;
 
 
 import static java.lang.System.currentTimeMillis;
@@ -23,13 +18,13 @@ public class Main {
         ArrayList<Student> students = CsvReader.readFile("C:/Users/Murrai.Scanlon/IdeaProjects/group_generator/csv/test2.csv");
 
         //Use a while loop to continuously check for CLI user input
-        String quit = "n";
-        while(quit.equals("n")){
+        String quit = "";
+        while(!quit.equals("0")){
 
-            String[] option = View.menu(); //Ask user for course, section, and group size
-            ArrayList<String> namesList = getClass(option[0], option[1], students); //get list of names corresponding to course and section
-            generateGroups(option[1], option[2], namesList); //Generate groups based on user input/menu options
-            quit = View.continueOrQuit(); //stop program when user enters "y"
+            String[] optionMenu1 = View.menu1(); //Ask user for course, section, and group size
+            ArrayList<String> namesList = getClass(optionMenu1[0], optionMenu1[1], students); //get list of names corresponding to course and section
+            generateGroups(optionMenu1[1], optionMenu1[2], namesList); //Generate groups based on user input/menu options
+            quit = View.menu2(); //stop program when user enters "y"
         }
 
 
