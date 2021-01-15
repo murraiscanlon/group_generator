@@ -8,7 +8,7 @@ import java.util.Collections;
 import static java.lang.System.currentTimeMillis;
 
 public class Main {
-    static ArrayList<String> output = new ArrayList<>();
+
 
     /**
      * Main method for generating groups
@@ -26,14 +26,14 @@ public class Main {
 
             optionMenu1 = View.menu1(); //Ask user for course, section, and group size
             ArrayList<String> namesList = getClass(optionMenu1[0], optionMenu1[1], students); //get list of names corresponding to course and section
-            generateGroups(optionMenu1[1], optionMenu1[2], namesList); //Generate groups based on user input/menu options
+            ArrayList<String> output = generateGroups(optionMenu1[1], optionMenu1[2], namesList); //Generate groups based on user input/menu options
             optionMenu2 = View.menu2(); //stop program when user enters "0"
             if (optionMenu2.equals("0")){
                 quit = "0";
             } else if (optionMenu2.equals("1")){
                 generateGroups(optionMenu1[1], optionMenu1[2], namesList);
             } else {
-                fileWrite(optionMenu1[1], "drivebase");
+                fileWrite(optionMenu1[1], "drivebase", output);
 
             }
         }
@@ -53,7 +53,8 @@ public class Main {
      * @param namesList
      */
 
-    public static void generateGroups(String section, String groupSize, ArrayList<String> namesList){
+    public static ArrayList<String> generateGroups(String section, String groupSize, ArrayList<String> namesList){
+        ArrayList<String> output = new ArrayList<>();
 
         double groupNumber = Double.parseDouble(section); //class period/section number
         groupNumber  += .1; //add the decimal for the individual group numbers
@@ -103,6 +104,7 @@ public class Main {
 //        }
 //        System.out.println("file written successfully!");
 //
+        return output;
       }
 
 
@@ -135,7 +137,7 @@ public class Main {
 
     }
 
-    public static void fileWrite(String section, String project){
+    public static void fileWrite(String section, String project, ArrayList<String> output){
         try {
             Timestamp timestamp = new Timestamp(currentTimeMillis());
             FileWriter myWriter = new FileWriter("C:/Users/Murrai.Scanlon/Desktop/generated_groups/groups" + section + project + ".txt");
