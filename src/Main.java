@@ -1,9 +1,12 @@
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Array;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
+
+import static java.lang.System.currentTimeMillis;
 
 public class Main {
 
@@ -46,8 +49,10 @@ public class Main {
         System.out.println("Total Students in Period: " + namesList.size());
         System.out.println();
         int size = Integer.parseInt(groupSize); //size of groups
+        Timestamp timestamp = new Timestamp(currentTimeMillis());
         try {
             FileWriter myWriter = new FileWriter("C:/Users/Murrai.Scanlon/Desktop/groups.txt");
+            myWriter.write(timestamp + "\n");
 
         //Loop through the entire list of shuffled names, stepping matches group size
         for (int i = 0; i < namesList.size(); i += size) {
