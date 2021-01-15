@@ -23,10 +23,11 @@ public class Main {
         optionMenu1 = View.menu1(); //Ask user for course, section, and group size
         String optionMenu2 = "";
         String quit = "";
+        ArrayList<String> namesList = getClass(optionMenu1[0], optionMenu1[1], students); //get list of names corresponding to course and section
+        ArrayList<String> output = generateGroups(optionMenu1[1], optionMenu1[2], namesList); //Generate groups based on user input/menu options
         while(!quit.equals("0")){
 
-            ArrayList<String> namesList = getClass(optionMenu1[0], optionMenu1[1], students); //get list of names corresponding to course and section
-            ArrayList<String> output = generateGroups(optionMenu1[1], optionMenu1[2], namesList); //Generate groups based on user input/menu options
+
             optionMenu2 = View.menu2();
             if (optionMenu2.equals("0")){ //stop program when user enters "0"
                 quit = "0";
@@ -44,9 +45,6 @@ public class Main {
 
     }
 
-    public static void regenerateGroups(){
-
-    }
 
     /**
      * This function prints groups of students based on user parameters of course, section, and size.
