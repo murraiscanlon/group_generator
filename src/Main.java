@@ -32,7 +32,7 @@ public class Main {
             if (optionMenu2.equals("0")){ //stop program when user enters "0"
                 quit = "0";
             } else if (optionMenu2.equals("1")){ //regenerate groups
-                generateGroups(optionMenu1[1], optionMenu1[2], namesList);
+                output = generateGroups(optionMenu1[1], optionMenu1[2], namesList);
             } else if (optionMenu2.equals("2")){
                 fileWrite(optionMenu1[1], "drivebase", output); //print groups
 
