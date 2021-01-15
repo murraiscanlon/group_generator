@@ -8,6 +8,7 @@ import java.util.Collections;
 import static java.lang.System.currentTimeMillis;
 
 public class Main {
+    static ArrayList<String> output = new ArrayList<>();
 
     /**
      * Main method for generating groups
@@ -18,16 +19,30 @@ public class Main {
         ArrayList<Student> students = CsvReader.readFile("C:/Users/Murrai.Scanlon/IdeaProjects/group_generator/csv/test2.csv");
 
         //Use a while loop to continuously check for CLI user input
+        String[] optionMenu1;
+        String optionMenu2 = "";
         String quit = "";
         while(!quit.equals("0")){
 
-            String[] optionMenu1 = View.menu1(); //Ask user for course, section, and group size
+            optionMenu1 = View.menu1(); //Ask user for course, section, and group size
             ArrayList<String> namesList = getClass(optionMenu1[0], optionMenu1[1], students); //get list of names corresponding to course and section
             generateGroups(optionMenu1[1], optionMenu1[2], namesList); //Generate groups based on user input/menu options
-            quit = View.menu2(); //stop program when user enters "y"
+            optionMenu2 = View.menu2(); //stop program when user enters "0"
+            if (optionMenu2.equals("0")){
+                quit = "0";
+            } else if (optionMenu2.equals("1")){
+                generateGroups(optionMenu1[1], optionMenu1[2], namesList);
+            } else {
+                fileWrite(optionMenu1[1], "drivebase");
+
+            }
         }
 
 
+
+    }
+
+    public static void regenerateGroups(){
 
     }
 
@@ -48,24 +63,27 @@ public class Main {
         System.out.println("Total Students in Period: " + namesList.size());
         System.out.println();
         int size = Integer.parseInt(groupSize); //size of groups
-        Timestamp timestamp = new Timestamp(currentTimeMillis());
+        //Timestamp timestamp = new Timestamp(currentTimeMillis());
         //String fileName = new SimpleDateFormat("MM-dd-yyyy_HH-mm'.txt'").format(new Date());
 
-        try {
-            FileWriter myWriter = new FileWriter("C:/Users/Murrai.Scanlon/Desktop/generated_groups/groups" + section +"drivebase.txt");
-            myWriter.write("\n" + timestamp + "\n");
-            myWriter.write("\n");
+        //try {
+//            FileWriter myWriter = new FileWriter("C:/Users/Murrai.Scanlon/Desktop/generated_groups/groups" + section +"drivebase.txt");
+//            myWriter.write("\n" + timestamp + "\n");
+//            myWriter.write("\n");
 
         //Loop through the entire list of shuffled names, stepping matches group size
+
         for (int i = 0; i < namesList.size(); i += size) {
                 System.out.println("GROUP: " + String.format("%.1f", groupNumber));
-                myWriter.write("GROUP: " + String.format("%.1f", groupNumber) + "\n");
+                //myWriter.write("GROUP: " + String.format("%.1f", groupNumber) + "\n");
+                output.add("GROUP: " + String.format("%.1f", groupNumber) + "\n");
 
                 try {
                     for (int j = 0; j < size; j++) { //Print every name in groups of n-size
 
                         System.out.println(namesList.get(i + j)); // + ": " + String.format("%.1f", groupNumber));
-                        myWriter.write(namesList.get(i + j) + "\n");
+                        //myWriter.write(namesList.get(i + j) + "\n");
+                        output.add(namesList.get(i + j) + "\n");
                     }
 
                 } catch (IndexOutOfBoundsException e) {
@@ -73,17 +91,19 @@ public class Main {
 
                 }
                     System.out.println("--------------------");
-                    myWriter.write("--------------------" + "\n");
+                    //myWriter.write("--------------------" + "\n");
+                    output.add("--------------------" + "\n");
+
                     groupNumber += .1;//Update the group number for display
             }
-            myWriter.close();
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
-        System.out.println("file written successfully!");
-
-        }
+            //myWriter.close();
+//        } catch (IOException e) {
+//            System.out.println("An error occurred.");
+//            e.printStackTrace();
+//        }
+//        System.out.println("file written successfully!");
+//
+      }
 
 
     /**
@@ -115,18 +135,23 @@ public class Main {
 
     }
 
-//    public static void fileWrite(){
-//        try {
-//            FileWriter myWriter = new FileWriter("C:/Users/Murrai.Scanlon/Desktop/groups.txt");
-//
-//            myWriter.write("Files in Java might be tricky, but it is fun enough!");
-//            myWriter.close();
-//            System.out.println("Successfully wrote to the file.");
-//        } catch (IOException e) {
-//            System.out.println("An error occurred.");
-//            e.printStackTrace();
-//        }
-//
-//
-//    }
+    public static void fileWrite(String section, String project){
+        try {
+            Timestamp timestamp = new Timestamp(currentTimeMillis());
+            FileWriter myWriter = new FileWriter("C:/Users/Murrai.Scanlon/Desktop/generated_groups/groups" + section + project + ".txt");
+            myWriter.write("\n" + timestamp + "\n");
+            myWriter.write("\n");
+
+            for (int i = 0; i < output.size(); i++){
+                myWriter.write(output.get(i));
+            }
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+
+    }
 }
