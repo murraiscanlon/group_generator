@@ -24,12 +24,13 @@ public class CsvReader {
                     String[] column = row.split(",");
 
                     String id = column[0];
-                    String lastname = column[1];
-                    String firstname = column[2];
-                    String course = column[3];
-                    String section = column[4];
+                    //String lastname = column[1];
+                    //String firstname = column[2];
+                    String name = column[1];
+                    String course = column[2];
+                    String section = column[3];
 
-                    Student student = new Student(id, lastname, firstname, course, section);
+                    Student student = new Student(id, name, course, section);
                     students.add(student);
 
 
