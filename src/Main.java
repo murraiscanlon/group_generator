@@ -8,7 +8,7 @@ import java.util.Collections;
 import static java.lang.System.currentTimeMillis;
 
 public class Main {
-
+    static int generation = 0;
 
     /**
      * Main method for generating groups
@@ -20,21 +20,23 @@ public class Main {
 
         //Use a while loop to continuously check for CLI user input
         String[] optionMenu1;
+        optionMenu1 = View.menu1(); //Ask user for course, section, and group size
         String optionMenu2 = "";
         String quit = "";
         while(!quit.equals("0")){
 
-            optionMenu1 = View.menu1(); //Ask user for course, section, and group size
             ArrayList<String> namesList = getClass(optionMenu1[0], optionMenu1[1], students); //get list of names corresponding to course and section
             ArrayList<String> output = generateGroups(optionMenu1[1], optionMenu1[2], namesList); //Generate groups based on user input/menu options
-            optionMenu2 = View.menu2(); //stop program when user enters "0"
-            if (optionMenu2.equals("0")){
+            optionMenu2 = View.menu2();
+            if (optionMenu2.equals("0")){ //stop program when user enters "0"
                 quit = "0";
-            } else if (optionMenu2.equals("1")){
+            } else if (optionMenu2.equals("1")){ //regenerate groups
                 generateGroups(optionMenu1[1], optionMenu1[2], namesList);
-            } else {
-                fileWrite(optionMenu1[1], "drivebase", output);
+            } else if (optionMenu2.equals("2")){
+                fileWrite(optionMenu1[1], "drivebase", output); //print groups
 
+            } else {
+                //TODO reword the options for "continue" after printing
             }
         }
 
@@ -55,14 +57,22 @@ public class Main {
 
     public static ArrayList<String> generateGroups(String section, String groupSize, ArrayList<String> namesList){
         ArrayList<String> output = new ArrayList<>();
+        generation++;
 
         double groupNumber = Double.parseDouble(section); //class period/section number
         groupNumber  += .1; //add the decimal for the individual group numbers
         Collections.shuffle(namesList);
         System.out.println();
+        output.add("\n");
+        System.out.println("Report generation: " + generation);
+        output.add("Report generation: " + generation + "\n");
         System.out.println("Groups Generated for Period: " + section);
+        output.add("Groups Generated for Period: " + "\n");
         System.out.println("Total Students in Period: " + namesList.size());
+        output.add("Total Students in Period: " + "\n");
         System.out.println();
+        output.add("\n");
+
         int size = Integer.parseInt(groupSize); //size of groups
         //Timestamp timestamp = new Timestamp(currentTimeMillis());
         //String fileName = new SimpleDateFormat("MM-dd-yyyy_HH-mm'.txt'").format(new Date());
@@ -148,7 +158,7 @@ public class Main {
                 myWriter.write(output.get(i));
             }
             myWriter.close();
-            System.out.println("Successfully wrote to the file.");
+            //System.out.println("Successfully wrote to the file.");
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
