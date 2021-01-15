@@ -4,7 +4,7 @@ public class Student {
     String id;
     String lastname;
     String firstname;
-    String name;
+    //String name;
     String course;
     String section;
     ArrayList<String> groups = new ArrayList<>();
@@ -12,19 +12,22 @@ public class Student {
     String fullname;
 
 
-    public Student(String id, String name, String course, String section) {
+    public Student(String id, String firstname, String lastname, String course, String section) {
 
         this.id = id;
-        //this.lastname = lastname;
-        //this.firstname = firstname;
-        this.name = name;
+        this.lastname = lastname;
+        this.firstname = firstname;
+        //this.name = name;
         this.course = course;
         this.section = section;
         count++;
     }
 
+//    public String getName(){
+//        return name;
+//    }
 
-    public String getFullname(){
+    public String getFullName(){
         return firstname + " " + lastname;
     }
 

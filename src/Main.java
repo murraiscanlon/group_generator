@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
         //read in the csv with student data and save the return list of Student objects
-        ArrayList<Student> students = CsvReader.readFile("C:/Users/Murrai.Scanlon/IdeaProjects/group_generator/csv/test.csv");
+        ArrayList<Student> students = CsvReader.readFile("C:/Users/Murrai.Scanlon/IdeaProjects/group_generator/csv/test2.csv");
 
         //Use a while loop to continuously check for CLI user input
         String quit = "n";
@@ -76,7 +76,7 @@ public class Main {
                 //System.out.println(s.getCourse());
                 if (s.getSection().equals(section)){
                     //System.out.println(s.getSection());
-                    classlist.add(s.getFullname());
+                    classlist.add(s.getFullName());
                     //System.out.println(s.getFullname());
                 }
 
