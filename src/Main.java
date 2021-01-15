@@ -1,3 +1,5 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -5,6 +7,10 @@ import java.util.Random;
 
 public class Main {
 
+    /**
+     * Main method for generating groups
+     * @param args
+     */
     public static void main(String[] args) {
         //read in the csv with student data and save the return list of Student objects
         ArrayList<Student> students = CsvReader.readFile("C:/Users/Murrai.Scanlon/IdeaProjects/group_generator/csv/test2.csv");
@@ -18,6 +24,9 @@ public class Main {
             generateGroups(option[1], option[2], namesList); //Generate groups based on user input/menu options
             quit = View.continueOrQuit(); //stop program when user enters "y"
         }
+
+
+
     }
 
     /**
@@ -37,15 +46,19 @@ public class Main {
         System.out.println("Total Students in Period: " + namesList.size());
         System.out.println();
         int size = Integer.parseInt(groupSize); //size of groups
+        try {
+            FileWriter myWriter = new FileWriter("C:/Users/Murrai.Scanlon/Desktop/groups.txt");
 
         //Loop through the entire list of shuffled names, stepping matches group size
         for (int i = 0; i < namesList.size(); i += size) {
                 System.out.println("GROUP: " + String.format("%.1f", groupNumber));
+                myWriter.write("GROUP: " + String.format("%.1f", groupNumber) + "\n");
 
                 try {
                     for (int j = 0; j < size; j++) { //Print every name in groups of n-size
 
                         System.out.println(namesList.get(i + j)); // + ": " + String.format("%.1f", groupNumber));
+                        myWriter.write(namesList.get(i + j) + "\n");
                     }
 
                 } catch (IndexOutOfBoundsException e) {
@@ -53,8 +66,15 @@ public class Main {
 
                 }
                     System.out.println("--------------------");
+                    myWriter.write("--------------------" + "\n");
                     groupNumber += .1;//Update the group number for display
             }
+            myWriter.close();
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        System.out.println("file written successfully!");
 
         }
 
@@ -87,4 +107,19 @@ public class Main {
         return classlist;
 
     }
+
+//    public static void fileWrite(){
+//        try {
+//            FileWriter myWriter = new FileWriter("C:/Users/Murrai.Scanlon/Desktop/groups.txt");
+//
+//            myWriter.write("Files in Java might be tricky, but it is fun enough!");
+//            myWriter.close();
+//            System.out.println("Successfully wrote to the file.");
+//        } catch (IOException e) {
+//            System.out.println("An error occurred.");
+//            e.printStackTrace();
+//        }
+//
+//
+//    }
 }

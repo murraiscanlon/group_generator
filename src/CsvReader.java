@@ -26,8 +26,8 @@ public class CsvReader {
                     String id = column[0];
                     String lastname = column[1];
                     String firstname = column[2];
-                    String course = column[3].trim();
-                    String section = column[4].trim();
+                    String course = column[3];
+                    String section = column[4];
 
                     Student student = new Student(id, firstname, lastname, course, section);
                     students.add(student);
