@@ -1,43 +1,34 @@
 import java.util.ArrayList;
 
-public class Student {
+public class StudentModel {
     String id;
     String lastname;
     String firstname;
-    //String name;
     String course;
     String section;
     ArrayList<String> groups = new ArrayList<>();
     static int count = 0;
-    String fullname;
 
 
-    public Student(String id, String firstname, String lastname, String course, String section) {
+    public StudentModel(String id, String firstname, String lastname, String course, String section) {
 
         this.id = id;
         this.lastname = lastname;
         this.firstname = firstname;
-        //this.name = name;
         this.course = course;
         this.section = section;
         count++;
     }
 
-//    public String getName(){
-//        return name;
-//    }
-
     public String getFullName(){
         return firstname + " " + lastname;
     }
 
-    public void printStudent(Student s){
+    public void printStudent(StudentModel s){
         System.out.println("[ " + s.getLastname() + ", " + s.getFirstname() + " ]");
     }
 
-
-
-
+    //Getters and Setters
     public String getId() {
         return id;
     }

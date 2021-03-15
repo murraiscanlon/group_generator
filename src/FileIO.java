@@ -3,13 +3,13 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class CsvReader {
+public class FileIO {
 
 
 
-    public static ArrayList<Student> readFile(String path) {
+    public static ArrayList<StudentModel> readFile(String path) {
 
-        ArrayList<Student> students = new ArrayList<>();
+        ArrayList<StudentModel> students = new ArrayList<>();
 
         File infile = new File(path);
         Scanner scanner;
@@ -29,7 +29,7 @@ public class CsvReader {
                     String course = column[3];
                     String section = column[4];
 
-                    Student student = new Student(id, firstname, lastname, course, section);
+                    StudentModel student = new StudentModel(id, firstname, lastname, course, section);
                     students.add(student);
 
 

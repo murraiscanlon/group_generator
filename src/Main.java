@@ -16,11 +16,11 @@ public class Main {
      */
     public static void main(String[] args) {
         //read in the csv with student data and save the return list of Student objects
-        ArrayList<Student> students = CsvReader.readFile("C:/Users/Murrai.Scanlon/IdeaProjects/group_generator/csv/test2.csv");
+        ArrayList<StudentModel> students = FileIO.readFile("C:\\Users\\murra\\IdeaProjects\\group_generator\\resources\\test.csv");
 
         //Use a while loop to continuously check for CLI user input
         String[] optionMenu1;
-        optionMenu1 = View.menu1(); //Ask user for course, section, and group size
+        optionMenu1 = ConsoleUI.menu1(); //Ask user for course, section, and group size
         String optionMenu2 = "";
         String quit = "";
         ArrayList<String> namesList = getClass(optionMenu1[0], optionMenu1[1], students); //get list of names corresponding to course and section
@@ -28,7 +28,7 @@ public class Main {
         while(!quit.equals("0")){
 
 
-            optionMenu2 = View.menu2();
+            optionMenu2 = ConsoleUI.menu2();
             if (optionMenu2.equals("0")){ //stop program when user enters "0"
                 quit = "0";
             } else if (optionMenu2.equals("1")){ //regenerate groups
@@ -124,10 +124,10 @@ public class Main {
      * @param students
      * @return ArrayList<String> classList
      */
-    public static ArrayList<String> getClass(String course, String section, ArrayList<Student> students){
+    public static ArrayList<String> getClass(String course, String section, ArrayList<StudentModel> students){
         ArrayList<String> classlist = new ArrayList<>();
 
-        for (Student s : students){
+        for (StudentModel s : students){
             //System.out.println(s.getCourse());
             if (s.getCourse().equals(course)){
                 //System.out.println(s.getCourse());
