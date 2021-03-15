@@ -3,7 +3,14 @@ import java.util.Scanner;
 public class ConsoleUI {
     static Scanner scanner = new Scanner(System.in);
 
-    public static String[] menu1(){
+    public static String getRosterFileName(){
+        System.out.print("Enter the filename of the roster file: ");
+        String filename = scanner.nextLine();
+        String path = "C:\\Users\\murra\\IdeaProjects\\group_generator\\resources\\";
+        return path + filename;
+    }
+
+    public static String[] getGroupDetails(){
         String[] optionMenu1 = new String[3];
 
         System.out.print("Enter a course name (gte, stem lab, or adv robo): ");
@@ -15,7 +22,7 @@ public class ConsoleUI {
        return optionMenu1;
     }
 
-    public static String menu2(){
+    public static String getContinueResults(){
         String[] optionMenu2 = new String[1];
         System.out.print("Options:" + "\n");
         System.out.print("\t0 - Quit" + "\n");

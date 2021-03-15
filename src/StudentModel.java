@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
 public class StudentModel {
-    String id;
-    String lastname;
-    String firstname;
-    String course;
-    String section;
-    ArrayList<String> groups = new ArrayList<>();
+    private String id;
+    private String lastname;
+    private String firstname;
+    private String course;
+    private String section;
+    private ArrayList<String> groups = new ArrayList<>();
     static int count = 0;
 
 

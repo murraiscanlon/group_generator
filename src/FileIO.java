@@ -1,7 +1,12 @@
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import static java.lang.System.currentTimeMillis;
 
 public class FileIO {
 
@@ -45,5 +50,23 @@ public class FileIO {
         return students;
     }
 
+    public static void fileWrite(String section, String project, ArrayList<String> output){
+        try {
+            Timestamp timestamp = new Timestamp(currentTimeMillis());
+            FileWriter myWriter = new FileWriter("C:\\Users\\murra\\IdeaProjects\\group_generator\\output\\section" + section + project + ".txt");
+            myWriter.write("\n" + timestamp + "\n");
+            myWriter.write("\n");
 
+            for (int i = 0; i < output.size(); i++){
+                myWriter.write(output.get(i));
+            }
+            myWriter.close();
+            //System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+
+
+    }
 }

@@ -1,69 +1,57 @@
-import java.io.FileWriter;
-import java.io.IOException;
-import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Collections;
 
-
-import static java.lang.System.currentTimeMillis;
-
 public class Main {
-    static int generation = 0;
+    static int shuffled = 0; //to identify how many times the groups have been shuffled
 
     /**
-     * Main method for generating groups
-     * @param args
+     * Main method for generating random groups
      */
     public static void main(String[] args) {
+
+        //ask user for filename (including file extension)
+        String path = "C:\\Users\\murra\\IdeaProjects\\group_generator\\resources\\test.csv"; //ConsoleUI.getRosterFileName();
+
         //read in the csv with student data and save the return list of Student objects
-        ArrayList<StudentModel> students = FileIO.readFile("C:\\Users\\murra\\IdeaProjects\\group_generator\\resources\\test.csv");
+        ArrayList<StudentModel> allRosters = FileIO.readFile(path);
 
-        //Use a while loop to continuously check for CLI user input
-        String[] optionMenu1;
-        optionMenu1 = ConsoleUI.menu1(); //Ask user for course, section, and group size
-        String optionMenu2 = "";
-        String quit = "";
-        ArrayList<String> namesList = getClass(optionMenu1[0], optionMenu1[1], students); //get list of names corresponding to course and section
-        ArrayList<String> output = generateGroups(optionMenu1[1], optionMenu1[2], namesList); //Generate groups based on user input/menu options
-        while(!quit.equals("0")){
-
-
-            optionMenu2 = ConsoleUI.menu2();
-            if (optionMenu2.equals("0")){ //stop program when user enters "0"
-                quit = "0";
-            } else if (optionMenu2.equals("1")){ //regenerate groups
-                output = generateGroups(optionMenu1[1], optionMenu1[2], namesList);
-            } else if (optionMenu2.equals("2")){
-                fileWrite(optionMenu1[1], "drivebase", output); //print groups
-
-            } else {
-                //TODO reword the options for "continue" after printing
-            }
-        }
+        //Ask user for course, section, and group size
+        String[] groupDetails = {"gte", "3", "3"};
+        //groupDetails = ConsoleUI.getGroupDetails();
+        String course = groupDetails[0];
+        String section = groupDetails[1];
+        String group_size = groupDetails[2];
+        //TODO ask for the name of the project to be used in outfile name later
 
 
+        //get list of names corresponding to course and section
+        ArrayList<String> studentsInCourse = getCourse(course, section, allRosters);
 
-    }
+
+        //Generate random groups based on user input - group details
+        ArrayList<String> groups = generateGroups(section, group_size, studentsInCourse);
+
+
+        //Secondary actions after 1st generation of groups: Quit, Regenerate groups, Write to file
+        secondaryActions(section, group_size, studentsInCourse, groups);
+
+    }//end main
 
 
     /**
-     * This function prints groups of students based on user parameters of course, section, and size.
-     * @param section
-     * @param groupSize
-     * @param namesList
+     * Helper function to: generate random groups of students
      */
-
-    public static ArrayList<String> generateGroups(String section, String groupSize, ArrayList<String> namesList){
+    private static ArrayList<String> generateGroups(String section, String groupSize, ArrayList<String> namesList){
         ArrayList<String> output = new ArrayList<>();
-        generation++;
+        shuffled++;
 
         double groupNumber = Double.parseDouble(section); //class period/section number
         groupNumber  += .1; //add the decimal for the individual group numbers
         Collections.shuffle(namesList);
         System.out.println();
         output.add("\n");
-        System.out.println("Report generation: " + generation);
-        output.add("Report generation: " + generation + "\n");
+        System.out.println("Report generation: " + shuffled);
+        output.add("Report generation: " + shuffled + "\n");
         System.out.println("Groups Generated for Period: " + section);
         output.add("Groups Generated for Period: " + "\n");
         System.out.println("Total Students in Period: " + namesList.size());
@@ -117,14 +105,9 @@ public class Main {
 
 
     /**
-     * This function selects specified course and section from the entire list of all students and returns
-     * a String array with their full names for futher processing.
-     * @param course
-     * @param section
-     * @param students
-     * @return ArrayList<String> classList
+     * Helper function to: get only the students that correspond to user specifications
      */
-    public static ArrayList<String> getClass(String course, String section, ArrayList<StudentModel> students){
+    private static ArrayList<String> getCourse(String course, String section, ArrayList<StudentModel> students){
         ArrayList<String> classlist = new ArrayList<>();
 
         for (StudentModel s : students){
@@ -145,23 +128,26 @@ public class Main {
 
     }
 
-    public static void fileWrite(String section, String project, ArrayList<String> output){
-        try {
-            Timestamp timestamp = new Timestamp(currentTimeMillis());
-            FileWriter myWriter = new FileWriter("C:/Users/Murrai.Scanlon/Desktop/generated_groups/groups" + section + project + ".txt");
-            myWriter.write("\n" + timestamp + "\n");
-            myWriter.write("\n");
 
-            for (int i = 0; i < output.size(); i++){
-                myWriter.write(output.get(i));
+    /**
+     * Helper function to: repeatedly ask user for secondary actions until they wish to exit the program
+     */
+    private static void secondaryActions(String section, String group_size, ArrayList<String> studentsInCourse, ArrayList<String> groups){
+        String continueResult = ""; //0 = quit, 1 = regenerate groups, 2 = write groups to file
+        String quit = "";
+        while(!quit.equals("0")){
+
+            continueResult = ConsoleUI.getContinueResults();
+            if (continueResult.equals("0")){ //stop program when user enters "0"
+                quit = "0";
+            } else if (continueResult.equals("1")){ //regenerate groups
+                groups = generateGroups(section, group_size, studentsInCourse);
+            } else if (continueResult.equals("2")){
+                FileIO.fileWrite(section, "drivebase", groups); //print groups
+
+            } else {
+                //TODO reword the options for "continue" after printing
             }
-            myWriter.close();
-            //System.out.println("Successfully wrote to the file.");
-        } catch (IOException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
         }
-
-
     }
 }
