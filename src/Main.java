@@ -5,7 +5,7 @@ public class Main {
     static int shuffled = 0; //to identify how many times the groups have been shuffled
 
     /**
-     * Main method for generating random groups
+     * Main method for generating random groups of students for class projects.
      */
     public static void main(String[] args) {
 
@@ -16,7 +16,7 @@ public class Main {
         ArrayList<StudentModel> allRosters = FileIO.readFile(path);
 
         //Ask user for course, section, and group size
-        String[] groupDetails = {"gte", "3", "3"};
+        String[] groupDetails = {"gte", "3", "3"}; //hard coded for testing
         //groupDetails = ConsoleUI.getGroupDetails();
         String course = groupDetails[0];
         String section = groupDetails[1];
@@ -33,14 +33,14 @@ public class Main {
 
 
         //Secondary actions after 1st generation of groups: Quit, Regenerate groups, Write to file
-        secondaryActions(section, group_size, studentsInCourse, groups);
+        secondaryActions(course, section, group_size, studentsInCourse, groups);
+
+        //TODO copy output files to local directory
 
     }//end main
 
 
-    /**
-     * Helper function to: generate random groups of students
-     */
+    //Helper function to: generate random groups of students
     private static ArrayList<String> generateGroups(String section, String groupSize, ArrayList<String> namesList){
         ArrayList<String> output = new ArrayList<>();
         shuffled++;
@@ -104,9 +104,7 @@ public class Main {
       }
 
 
-    /**
-     * Helper function to: get only the students that correspond to user specifications
-     */
+    //Helper function to: get only the students that correspond to user specifications
     private static ArrayList<String> getCourse(String course, String section, ArrayList<StudentModel> students){
         ArrayList<String> classlist = new ArrayList<>();
 
@@ -129,10 +127,8 @@ public class Main {
     }
 
 
-    /**
-     * Helper function to: repeatedly ask user for secondary actions until they wish to exit the program
-     */
-    private static void secondaryActions(String section, String group_size, ArrayList<String> studentsInCourse, ArrayList<String> groups){
+    //Helper function to: repeatedly ask user for secondary actions until they wish to exit the program
+    private static void secondaryActions(String course, String section, String group_size, ArrayList<String> studentsInCourse, ArrayList<String> groups){
         String continueResult = ""; //0 = quit, 1 = regenerate groups, 2 = write groups to file
         String quit = "";
         while(!quit.equals("0")){
@@ -143,7 +139,8 @@ public class Main {
             } else if (continueResult.equals("1")){ //regenerate groups
                 groups = generateGroups(section, group_size, studentsInCourse);
             } else if (continueResult.equals("2")){
-                FileIO.fileWrite(section, "drivebase", groups); //print groups
+                String name  = ConsoleUI.getProjectName();
+                FileIO.fileWrite(course, section, name, groups); //print groups
 
             } else {
                 //TODO reword the options for "continue" after printing

@@ -1,7 +1,12 @@
+import org.apache.commons.io.FileUtils;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -50,10 +55,12 @@ public class FileIO {
         return students;
     }
 
-    public static void fileWrite(String section, String project, ArrayList<String> output){
+    public static String fileWrite(String course, String section, String project, ArrayList<String> output){
+        String filename = "" + course + section + project + ".txt";
+
         try {
             Timestamp timestamp = new Timestamp(currentTimeMillis());
-            FileWriter myWriter = new FileWriter("C:\\Users\\murra\\IdeaProjects\\group_generator\\output\\section" + section + project + ".txt");
+            FileWriter myWriter = new FileWriter("C:\\Users\\murra\\IdeaProjects\\group_generator\\output\\"+ course + section + project + ".txt");
             myWriter.write("\n" + timestamp + "\n");
             myWriter.write("\n");
 
@@ -66,7 +73,11 @@ public class FileIO {
             System.out.println("An error occurred.");
             e.printStackTrace();
         }
-
+    return filename;
 
     }
+
+
+
+
 }
