@@ -1,12 +1,8 @@
 import org.apache.commons.io.FileUtils;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -15,9 +11,8 @@ import static java.lang.System.currentTimeMillis;
 
 public class FileIO {
 
-
-
-    public static ArrayList<StudentModel> readFile(String path) {
+    //read in the roster.csv and load data into StudentModel objects
+    public  ArrayList<StudentModel> readFile(String path) {
 
         ArrayList<StudentModel> students = new ArrayList<>();
 
@@ -55,7 +50,8 @@ public class FileIO {
         return students;
     }
 
-    public static String fileWrite(String course, String section, String project, ArrayList<String> output){
+    //write the randomized groups to a .txt file
+    public  String fileWrite(String course, String section, String project, ArrayList<String> output){
         String filename = "" + course + section + project + ".txt";
 
         try {
@@ -76,8 +72,5 @@ public class FileIO {
     return filename;
 
     }
-
-
-
 
 }

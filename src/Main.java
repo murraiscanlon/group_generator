@@ -13,7 +13,8 @@ public class Main {
         String path = "C:\\Users\\murra\\IdeaProjects\\group_generator\\resources\\test.csv"; //ConsoleUI.getRosterFileName();
 
         //read in the csv with student data and save the return list of Student objects
-        ArrayList<StudentModel> allRosters = FileIO.readFile(path);
+        FileIO fileIO = new FileIO();
+        ArrayList<StudentModel> allRosters = fileIO.readFile(path);
 
         //Ask user for course, section, and group size
         String[] groupDetails = {"gte", "3", "3"}; //hard coded for testing
@@ -139,8 +140,9 @@ public class Main {
             } else if (continueResult.equals("1")){ //regenerate groups
                 groups = generateGroups(section, group_size, studentsInCourse);
             } else if (continueResult.equals("2")){
+                FileIO fileIO = new FileIO();
                 String name  = ConsoleUI.getProjectName();
-                FileIO.fileWrite(course, section, name, groups); //print groups
+                fileIO.fileWrite(course, section, name, groups); //print groups
 
             } else {
                 //TODO reword the options for "continue" after printing
