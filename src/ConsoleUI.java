@@ -10,7 +10,10 @@ public class ConsoleUI {
     } //good
 
     public static void welcomeMessage(){
-        sendMessage("\n********************** WELCOME to the GROUP RANDOMIZER  *************************\n\n");
+        sendMessage("\n+---------------------------------------------------+");
+        sendMessage("\n+           Welcome to Group Randomizer             +");
+        sendMessage("\n+---------------------------------------------------+\n\n");
+
 
     } //good
 
@@ -22,14 +25,29 @@ public class ConsoleUI {
     } //good, but using hard code for testing right now
 
     public static String displayMainMenu(){
+
         String option = "";
-        sendMessage("Choose an option below:\n");
-        sendMessage("\tg = Generate initial groups for a project\n");
-        sendMessage("\tr = Re-Shuffle the current groups\n");
-        sendMessage("\ts = Save to file\n");
-        sendMessage("\te = Exit the program\n");
-        sendMessage("Enter your choice here: ");
-        option = scanner.nextLine();
+        String[] menuOptions = {"1", "2", "3", "0"};
+        boolean isValid = false;
+        while(!isValid) {
+            sendMessage("Choose an option below:\n");
+            sendMessage("\t1 = Generate initial groups for a project\n");
+            sendMessage("\t2 = Re-Shuffle the current groups\n");
+            sendMessage("\t3 = Save to file\n");
+            sendMessage("\t0 = Exit the program\n");
+            sendMessage("Enter your choice here: ");
+            option = scanner.nextLine();
+            for (String item: menuOptions){
+                if (option.equals(item)){
+                    isValid = true;
+                    break;
+                }
+            }
+            if(!isValid){
+                sendMessage("----- Invalid entry. Please try again. -----\n\n");
+            }
+
+        }
         return option;
     }//good
 
@@ -45,6 +63,13 @@ public class ConsoleUI {
         projectDetails[3] = scanner.nextLine();
         return projectDetails;
     }//good
+
+    public static void goodbyeMessage(){
+        sendMessage("\n+---------------------------------------------------+");
+        sendMessage("\n+   This program was created with ❤ by Murrai      +");
+        sendMessage("\n+---------------------------------------------------+\n\n");
+    } //good
+
 
 
 }

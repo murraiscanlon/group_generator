@@ -29,11 +29,13 @@ public class Main {
 
         //Main loop. Displays choices to user
         GroupManager groupManager = new GroupManager();
+
+
         while (true) {
             //get main menu option from user
-            String mainMenuOption = ConsoleUI.displayMainMenu(); //g, r, s, e
-            switch (mainMenuOption.toLowerCase()){
-                case "g": //generate initial groups
+            String userOption = ConsoleUI.displayMainMenu(); //1,2,3,0
+            switch (userOption){
+                case "1": //generate initial groups
                     projectSpecs = ConsoleUI.getProjectSpecs();
                     projectName = projectSpecs[0];
                     courseName = projectSpecs[1];
@@ -44,17 +46,16 @@ public class Main {
                     groupsOutput = groupManager.generateGroups(courseName, sectionNumber, groupSize, studentsInCourse);
                     break;
 
-                case "r": //reshuffle groups
+                case "2": //reshuffle groups
                     groupsOutput = groupManager.generateGroups(courseName, sectionNumber, groupSize, studentsInCourse);
                     break;
 
-                case "s": //save groups to file
+                case "3": //save groups to file
                     fileIO.fileWrite(courseName, sectionNumber, projectName, groupsOutput);
                     break;
 
-                case "e": //exit the program
-                    System.out.println();
-                    ConsoleUI.sendMessage("This program was created with ❤ by Murrai");
+                case "0": //exit the program
+                    ConsoleUI.goodbyeMessage();
                     System.exit(0);
 
                 default:
