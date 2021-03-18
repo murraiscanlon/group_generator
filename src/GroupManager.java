@@ -27,7 +27,7 @@ public class GroupManager {
     //good
 
     //Helper function to: generate random groups of students
-    public ArrayList<String> generateGroups(String course, String section, String groupSize, ArrayList<String> studentsInCourse){
+    public ArrayList<String> generateGroups(String project, String course, String section, String groupSize, ArrayList<String> studentsInCourse){
 
         //this is printed to .txt file as output and to the console for previewing
         //TODO separate display function from output function
@@ -44,9 +44,11 @@ public class GroupManager {
         output.add("\n");
         ConsoleUI.sendMessage("\n+---------------------------------------------------+");
         ConsoleUI.sendMessage("\n+               Randomized Groups                   +");
+        System.out.printf("\n+                 Project: %s                     +", project);
         ConsoleUI.sendMessage("\n+---------------------------------------------------+\n\n");
         output.add("\n+---------------------------------------------------+");
         output.add("\n+               Randomized Groups                   +");
+        output.add("\n+              Project: " + project + "                   +");
         output.add("\n+---------------------------------------------------+\n\n");
         System.out.println("Report generation: " + shuffled);
         output.add("Report generation: " + shuffled + "\n");

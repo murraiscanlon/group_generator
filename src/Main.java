@@ -43,11 +43,11 @@ public class Main {
                     groupSize = projectSpecs[3];
 
                     studentsInCourse = groupManager.getStudentsInCourse(courseName, sectionNumber, allRosters);
-                    groupsOutput = groupManager.generateGroups(courseName, sectionNumber, groupSize, studentsInCourse);
+                    groupsOutput = groupManager.generateGroups(projectName, courseName, sectionNumber, groupSize, studentsInCourse);
                     break;
 
                 case "2": //reshuffle groups
-                    groupsOutput = groupManager.generateGroups(courseName, sectionNumber, groupSize, studentsInCourse);
+                    groupsOutput = groupManager.generateGroups(projectName, courseName, sectionNumber, groupSize, studentsInCourse);
                     break;
 
                 case "3": //save groups to file
