@@ -43,12 +43,12 @@ public class GroupManager {
         System.out.println();
         output.add("\n");
         ConsoleUI.sendMessage("\n+---------------------------------------------------+");
-        ConsoleUI.sendMessage("\n+               Randomized Groups                   +");
-        System.out.printf("\n+                 Project: %s                     +", project);
+        ConsoleUI.sendMessage("\n               Randomized Groups                   ");
+        System.out.printf("\n               Project: %s                     ", project);
         ConsoleUI.sendMessage("\n+---------------------------------------------------+\n\n");
         output.add("\n+---------------------------------------------------+");
-        output.add("\n+               Randomized Groups                   +");
-        output.add("\n+              Project: " + project + "                   +");
+        output.add("\n              Randomized Groups                   ");
+        output.add("\n              Project: " + project);
         output.add("\n+---------------------------------------------------+\n\n");
         System.out.println("Report generation: " + shuffled);
         output.add("Report generation: " + shuffled + "\n");
