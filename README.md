@@ -29,6 +29,8 @@ and a specified group size provided by the user.
 
 
 ## SCREENSHOTS:
+(names are generic test names and not the names of real students)
+
 ![img of application](https://github.com/murraiscanlon/group_generator/blob/master/images/option1.PNG)<br /><br /><br />
 
 ![img of application](https://github.com/murraiscanlon/group_generator/blob/master/images/option1results.PNG)<br /><br /><br />
