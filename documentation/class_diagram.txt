@@ -1,14 +1,40 @@
 
 Problem statement:
-    I need a group generator that will form project groups and keep track of which students
-    have worked together.
+    In my class, the students works in groups or partnerships most of the time. I spend too much time trying to
+    form random groups. I need a program that can quickly form groups of specified sizes from my class rosters.
+
+Ask the user for a filename to get all up-to-date rosters
+Read in the data and load it to Student objects
+Display success message
+
+Main Menu
+Ask the user what they would like to do next:
+    g - Generate initial groups for a project
+    r - Re-Shuffle the current groups
+    s - Save groups to file
+    e - Exit the program
+
+1:
+    Ask the user for the project name
+    Ask the user for group specs: course name, section number, and group size  getSpecs()
+    Generate a set of groups generateGroups()
+    Display groups to the user displayGroups()
+    Display menu options
+
+2:
+    Re-shuffle same set of students shuffleGroups()
+    Display new groups
+    Display menu options
+
+3:
+    Write groups to .txt file however I did it previously. Save to ide/output folder now, work up to desktop folder
+
+4:
+    return to main
+    display goodbye message
 
 
 
-    Generate groups of students with the following constraints from user:
-        1.  Course
-        2.  Period
-        3.  Group size range
 
-    Keep track of which groups which students have been a part of
+
 

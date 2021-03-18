@@ -37,21 +37,21 @@ public class FileIO {
                     StudentModel student = new StudentModel(id, firstname, lastname, course, section);
                     students.add(student);
 
-
                 }
 
 
             } catch (FileNotFoundException e) {
+                ConsoleUI.sendMessage("There was an error. The File was not loaded.");
                 e.printStackTrace();
             }
         }
 
-
         return students;
-    }
+
+    }//good
 
     //write the randomized groups to a .txt file
-    public  String fileWrite(String course, String section, String project, ArrayList<String> output){
+    public void fileWrite(String course, String section, String project, ArrayList<String> output){
         String filename = "" + course + section + project + ".txt";
 
         try {
@@ -64,13 +64,12 @@ public class FileIO {
                 myWriter.write(output.get(i));
             }
             myWriter.close();
-            //System.out.println("Successfully wrote to the file.");
+//            System.out.println("Successfully saved as: " + filename);
         } catch (IOException e) {
-            System.out.println("An error occurred.");
+            System.out.println("An error occurred. The file was not written.");
             e.printStackTrace();
         }
-    return filename;
-
-    }
-
+        System.out.println("File successfully written as: " + filename);
+        System.out.println();
+    }//good
 }
