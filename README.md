@@ -1,14 +1,13 @@
-# Group Project Grade Calculator ![img of application](https://github.com/murraiscanlon/group-project-calculator/blob/master/discount.png)<br />
+# Random Group Generator ![img of application](https://github.com/murraiscanlon/group-project-calculator/blob/master/discount.png)<br />
 
 
 
 ##  PURPOSE: ![img of application](https://github.com/murraiscanlon/group-project-calculator/blob/master/light-bulb32.png)
-Group projects in my class are always broken down into three different weighted grade categories:
-* Product - 45%
-* Participation - 45%
-* Submission guidelines - %10
+Rather than spending time creating student groups from scratch, this program will generate random groups based on user specified
+....finish later
 
-This application calculates grades entered by the user and stores them in a .txt file.<br /><br /><br />
+
+<br /><br /><br />
 
 
 ## :exclamation: IMPROVEMENTS NEEDED:
