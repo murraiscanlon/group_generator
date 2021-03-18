@@ -29,10 +29,10 @@ and a specified group size provided by the user.
 
 
 ## SCREENSHOTS:
-(names are generic test names and not the names of real students)
 
 ![img of application](https://github.com/murraiscanlon/group_generator/blob/master/images/option1.PNG)<br /><br /><br />
 
+(names are generic test names and not the names of real students)
 ![img of application](https://github.com/murraiscanlon/group_generator/blob/master/images/option1results.PNG)<br /><br /><br />
 
 <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
