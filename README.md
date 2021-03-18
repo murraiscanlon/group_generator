@@ -1,4 +1,4 @@
-# Random Group Generator ![img of application](https://github.com/murraiscanlon/group-project-calculator/blob/master/discount.png)<br />
+# Random Group Generator ![img of application](https://github.com/murraiscanlon/group-generator/blob/master/group.png)<br />
 
 
 
