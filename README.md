@@ -6,6 +6,12 @@
 Rather than spending time creating student groups from scratch, this program will generate random groups based on class rosters
 and a specified group size provided by the user.
 
+##  HOW TO USE: ![img_of_application] (https://github.com/murraiscanlon/group_generator/blob/master/images/play.png)
+Download all folders
+Make sure you add your own rosters.csv file in the resources folder. Check the column headings in the test.csv and make sure your column headings match
+Compile/Run
+Note: Report will be saved in the output folder as a .txt file
+
 <br /><br /><br />
 
 
