@@ -3,29 +3,29 @@
 
 
 ##  PURPOSE: ![img of application](https://github.com/murraiscanlon/group-project-calculator/blob/master/light-bulb32.png)
-Rather than spending time creating student groups from scratch, this program will generate random groups based on user specified
-....finish later
-
+Rather than spending time creating student groups from scratch, this program will generate random groups based on class rosters
+and a specified group size provided by the user.
 
 <br /><br /><br />
 
 
 ## :exclamation: IMPROVEMENTS NEEDED:
-* Create destination file if it doesn't already exist
-* Input validation and error handling<br /><br /><br />
+* Create destination on user's desktop for output report
+* Validate input in projectDetails() function
+* Look into changing menu switch statement to classes<br /><br /><br />
 
 ## :sparkles: APPLICATION FEATURES:
-- [X] Calculates grades based on weights
-- [X] Writes group data to .txt file
-- [ ] Write group data to .xlxs file
-- [ ] Load previous files to make madifications:
-- [ ] Look up previous data
-- [ ] Modify previous data<br /><br /><br />
+- [X] Reads in roster data from .csv file
+- [X] Generates groups per project
+- [X] Dynamically creates random groups based on user specified course, section, and group size
+- [X] Allows for re-shuffling of groups
+- [X] Displays a preview of groups before saving specific regeneration to file
+- [ ] .<br /><br /><br />
 
 ## TECHNOLOGIES: ![img of application](https://github.com/murraiscanlon/group-project-calculator/blob/master/technologies.png)
-* Java
-* JavaFX
-* CSS <br /><br /><br />
+* Java 11
+* Intellij
+* .<br /><br /><br />
 
 
 ## SCREENSHOTS:
